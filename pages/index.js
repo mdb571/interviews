@@ -1,29 +1,33 @@
 import { getWhyNextReasons } from "../lib/api";
+import Head from 'next/head'
 
 export default function IndexPage({ reasons }) {
   return (
-    <div>
-      <div className="container mx-auto py-20 px-8">
-        <h1 className="text-5xl text-center text-accent-1 mb-16">
-          Interview Exp EC`22
+    <div className="bg-gray-900">
+    <Head>
+        <title>InterviewXP</title>
+      </Head>
+      <div className="dark container mx-auto py-20 px-8">
+        <h1 className="text-white text-5xl text-center text-accent-1 mb-16">
+          Interview XP EC`22
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="dark grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {reasons
             .slice(0, reasons.length)
-            .map(({ name, company, technical,hr,suggestion,status }) => (
+            .map(({ name, company, technical,hr,suggestion }) => (
               <a
-                className="border border-grey-200 rounded p-4 hover:shadow-lg hover:border-transparent"
+                className="dark border border-grey-200 rounded p-4 hover:shadow-lg hover:border-transparent"
               >
-                <h3 className="font-bold mb-2">{name} ({company} {status})</h3>
-                <h4 className="fon-bold mb-3"> Technical Questions </h4>
-                <div className="mb-3" dangerouslySetInnerHTML={{ __html: technical }} />
+                <h3 className="text-white font-bold mb-2">{name} ({company})</h3>
+                <h4 className="text-white font-bold mb-3"> Technical Questions </h4>
+                <div className="text-white mb-3" dangerouslySetInnerHTML={{ __html: technical }} />
                
-                <h4 className="fon-bold mb-3"> HR Questions </h4>
-                <div className="mb-3" dangerouslySetInnerHTML={{ __html: hr }} />
+                <h4 className="text-white font-bold mb-3"> HR Questions </h4>
+                <div className="text-white mb-3" dangerouslySetInnerHTML={{ __html: hr }} />
                 
-                 <h4 className="fon-bold mb-3"> Suggestions </h4>
-                <div className="mb-3" dangerouslySetInnerHTML={{ __html: suggestion }} />
+                 <h4 className="text-white font-bold mb-3"> Suggestions </h4>
+                <div className="text-white mb-3" dangerouslySetInnerHTML={{ __html: suggestion }} />
                 
               </a>
             ))}
